@@ -1,7 +1,7 @@
 <?php
 $host="localhost";
 $user="root";
-$pass="1234";
+$pass="";
 $db="iteam";
 
 if(!mysql_connect($host,$user,$pass)|| !mysql_select_db($db)){
