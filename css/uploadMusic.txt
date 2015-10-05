@@ -1,0 +1,25 @@
+<?php
+ini_set('post_max_size', 5242880);    // Set upload limit (5MB)
+ini_set('upload_max_filesize', 5242880);    // Enforce upload limit
+ini_set('max_execution_time', 2400);    // Increase 'timeout' time
+
+echo "<form enctype='multipart/form-data' name='form2' method='post' action='video.php?view_id=view'>";
+if(isset($_REQUEST['Submit']))
+{
+print_r($_FILES['file2']);
+$music=($_FILES['file2']['name']);
+if($_FILES['file2']['error']>0)
+{
+    echo "error accured";
+}
+else
+{
+    move_uploaded_file($_FILES['file2']['tmp_name'],"uploadedMusic/".$_FILES['file2']['name']);
+}
+ 
+}
+ 
+echo "<input name='file2' type= 'file'>";
+echo "<input name='Submit' type='submit' value='upload music'>";
+echo "</form>";
+?>
